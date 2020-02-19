@@ -3,7 +3,7 @@
     // 当前链接
     var currentUrl = window.location.href;
     // 打开APP链接
-    var openUrl = 'ecton://com.ecton.app/openWeb?url=' + currentUrl;
+    var openUrl = 'ecton://com.ecton.app/openWeb?url=' + encodeURIComponent(currentUrl);
     // 下载地址（安卓）
     var androidDownloadUrl = 'https://android.myapp.com/myapp/detail.htm?apkName=com.ecton.app&ADTAG=mobile';
     // 下载地址（iOS）
@@ -25,9 +25,9 @@
         }
 
         // 奇葩的要求
-        if (/MicroMessenger/i.test(ua) === false && (isMobile && !isYikatong)) {
-            $('#m_common_tip .content-right').click();
-        }
+        // if (/MicroMessenger/i.test(ua) === false && (isMobile && !isYikatong)) {
+        //     $('#m_common_tip .content-right').click();
+        // }
     };
 
     /**
