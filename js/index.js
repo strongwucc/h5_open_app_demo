@@ -1,5 +1,14 @@
 (function () {
 
+    // 当前链接
+    var currentUrl = window.location.href;
+    // 打开APP链接
+    var openUrl = 'ecton://com.ecton.app/openWeb?url=' + currentUrl;
+    // 下载地址（安卓）
+    var androidDownloadUrl = 'https://android.myapp.com/myapp/detail.htm?apkName=com.ecton.app&ADTAG=mobile';
+    // 下载地址（iOS）
+    var iosDownLoadUrl = 'https://apps.apple.com/cn/app/%E5%B1%B1%E4%B8%9C%E4%B8%80%E5%8D%A1%E9%80%9Ae%E7%94%9F%E6%B4%BB/id1380052212';
+
     // 是否显示
     var showCommonTip = function () {
         let ua = navigator.userAgent,
@@ -62,14 +71,14 @@
             isIOS9
         } = detectVersion()
         if (isAndroid || isIOS) {
-            var timeout, t = 4000,
+            var timeout, t = 2000,
                 hasApp = true;
             var openScript = setTimeout(function () {
                 if (!hasApp) {
                     callback && callback()
                 }
                 document.body.removeChild(ifr);
-            }, 5000)
+            }, 3000)
 
             var t1 = Date.now();
             var ifr = document.createElement("iframe");
@@ -115,17 +124,11 @@
             // }
 
             if (isWeiXin) {
-                // 调用框架的弹窗提示在原生浏览器打开
-                console.log('调用框架的弹窗提示在原生浏览器打开');
-                console.log($('#m_common_tip_mask'));
+                // 显示提示遮罩，提示在内置浏览器中打开
                 $('#m_common_tip_mask').css('display', 'block');
             } else {
-                // 调用 APP 的方法打开 App，需要咨询 APP 开发人员
-                console.log('调用 APP 的方法打开 App');
-                let currentUrl = window.location.href;
-                let openUrl = 'ecton://com.ecton.app/openWeb?url=' + currentUrl;
-                let androidDownloadUrl = 'https://android.myapp.com/myapp/detail.htm?apkName=com.ecton.app&ADTAG=mobile';
-                let iosDownLoadUrl = 'https://apps.apple.com/cn/app/%E5%B1%B1%E4%B8%9C%E4%B8%80%E5%8D%A1%E9%80%9Ae%E7%94%9F%E6%B4%BB/id1380052212';
+                // 打开APP，失败则去下载页面
+                console.log('打开APP，失败则去下载页面');
                 // window.location.href = 'ecton://com.ecton.app/openWeb?url=' + currentUrl;
                 openApp(openUrl, function () {
                     let {
