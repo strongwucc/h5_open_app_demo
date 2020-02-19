@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>打开 App</title>
+    <meta http-equiv="Cache-Control" content="max-age=180">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <!--jquery原来页面有引入-->
+    <script src="http://appmall.sdykt.com.cn:8080/res/frontWap/mallwap/vendors/jquery/jquery-3.2.1.min.js"></script>
+    <!--jquery原来页面有引入-->
+    <script src="./js/index.js"></script>
+    <style>
+        #m_common_tip {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 99;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            height: 48px;
+        }
+
+        #m_common_tip .tip-close-btn {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #m_common_tip .tip-close-btn img {
+            width: 24px;
+            height: 24px;
+        }
+
+        #m_common_tip .tip-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        #m_common_tip .tip-content .content-left {
+            height: 48px;
+            width: 236px;
+        }
+
+        #m_common_tip .tip-content .content-left img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #m_common_tip .tip-content .content-right {
+            flex-grow: 1;
+            height: 48px;
+            background: rgba(243, 121, 0, 1);
+            line-height: 48px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        #m_common_tip_mask {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        #m_common_tip_mask .notice-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: 11px;
+            right: 17px;
+        }
+
+        #m_common_tip_mask .notice-icon img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #m_common_tip_mask .notice-content {
+            width: 173px;
+            height: 64px;
+            background: rgba(70, 70, 70, 1);
+            border: 1px solid rgba(255, 255, 255, 1);
+            opacity: 0.7;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 24px;
+            color: rgba(255, 255, 255, 1);
+            padding: 10px 24px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 55px;
+            right: 14px;
+        }
+    </style>
+</head>
+
+<body ontouchstart="" style="max-width: 1080px;overflow-x: hidden;">
+    <div id="m_common_tip">
+        <div class="tip-close-btn">
+            <img src="./images/icon _close.png">
+        </div>
+        <div class="tip-content">
+            <div class="content-left">
+                <img src="./images/share_logo@2x.png">
+            </div>
+            <div class="content-right">立即打开</div>
+        </div>
+    </div>
+    <div class="content">
+        <img width="100%" src="./images/demo.png">
+    </div>
+    <div class="content">
+        <img width="100%" src="./images/demo.png">
+    </div>
+    <div id="m_common_tip_mask">
+        <div class="notice-icon"><img src="./images/share_icon_arrow.png"></div>
+        <div class="notice-content">点击右上角菜单 在 <span style="color: #F37900;">浏览器</span> 中打开链接</div>
+    </div>
+</body>
+
+</html>
