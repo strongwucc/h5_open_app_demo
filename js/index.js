@@ -110,6 +110,7 @@
         showCommonTip();
         // 点击打开
         $('#m_common_tip .content-right').on('click', function () {
+            let elementTarget = this;
             let ua = navigator.userAgent;
             let isWeiXin = /MicroMessenger/i.test(ua);
 
@@ -130,6 +131,7 @@
                 // 打开APP，失败则去下载页面
                 console.log('打开APP，失败则去下载页面');
                 // window.location.href = 'ecton://com.ecton.app/openWeb?url=' + currentUrl;
+                $(elementTarget).text('正在打开...');
                 openApp(openUrl, function () {
                     let {
                         isAndroid,
