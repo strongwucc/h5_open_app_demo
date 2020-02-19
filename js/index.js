@@ -23,6 +23,11 @@
         if (/MicroMessenger/i.test(ua) || (isMobile && !isYikatong)) {
             $('#m_common_tip').css('display', 'flex');
         }
+
+        // 奇葩的要求
+        if (/MicroMessenger/i.test(ua) === false && (isMobile && !isYikatong)) {
+            $('#m_common_tip .content-right').click();
+        }
     };
 
     /**
@@ -106,8 +111,7 @@
     }
 
     $(document).ready(function () {
-        // 是否显示
-        showCommonTip();
+
         // 点击打开
         $('#m_common_tip .content-right').on('click', function () {
             let elementTarget = this;
@@ -148,6 +152,7 @@
                 });
             }
         })
+
         // 点击取消
         $('#m_common_tip .tip-close-btn').on('click', function () {
             $('#m_common_tip').css('display', 'none');
@@ -157,5 +162,8 @@
         $('#m_common_tip_mask').on('click', function () {
             $('#m_common_tip_mask').css('display', 'none');
         })
+
+        // 是否显示
+        showCommonTip();
     });
 })()
