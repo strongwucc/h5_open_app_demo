@@ -20,9 +20,16 @@
 
         // 微信、非一卡通商城
         let isYikatong = /ecton/gi.test(ua); // 判断是否在一卡通 APP 打开
-        if (/MicroMessenger/i.test(ua) || (isMobile && !isYikatong)) {
+        let isSafari = /safari/gi.test(ua) && !/chrome/gi.test(ua);
+
+        // 情况：1.微信(打开) 2.ios上的浏览器(打开) 3.安卓上的浏览器(打开) 4.老版ios的一卡通(不打开) 5.新版ios的一卡通(不打开) 5.安卓的一卡通(不打开)
+        if (/MicroMessenger/i.test(ua) || (isIOS && isSafari) || (isAndroid && !isYikatong)) {
             $('#m_common_tip').css('display', 'flex');
         }
+        
+        // if (/MicroMessenger/i.test(ua) || (isMobile && (!isYikatong || !isSafari))) {
+        //     $('#m_common_tip').css('display', 'flex');
+        // }
 
         // 奇葩的要求
         // if (/MicroMessenger/i.test(ua) === false && (isMobile && !isYikatong)) {
@@ -103,10 +110,10 @@
             location.href = url;
             setTimeout(function () {
                 callback && callback()
-            }, 250);
+            }, 2000);
             setTimeout(function () {
                 location.reload();
-            }, 1000);
+            }, 3000);
         }
     }
 
